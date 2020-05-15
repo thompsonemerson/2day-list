@@ -1,0 +1,17 @@
+{
+  "name": "2Day List",
+  "short_name": "2day",
+  "description": "A simple daily todo list",
+  "version": "1.0.1",
+  "incognito": "split",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'sha256-eK6JDPSp4XZCKLEp6RGyGcg5NnAVX6nf9CATmT6/jl4='; object-src 'self'"
+}
