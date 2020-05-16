@@ -67,7 +67,7 @@ export default (props) => {
     <Item 
       {...props} 
       className={props.checked ? 'checked':''}>
-      {props.children}
+      {props.text}
       <Icon onClick={(e) => remove(e, props.id)}>
         <FiTrash color="#FFF" size={16} />
       </Icon>

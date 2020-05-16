@@ -37,15 +37,9 @@ export default () => {
   };
 
   const add = (text) => {
-    const newData = data ? [...data, {
-      id: data.length,
-      title: text,
-      checked: false
-    }] : [{
-      id: 0,
-      title: text,
-      checked: false
-    }];
+    const id = '_' + Math.random().toString(36).substr(2, 9);
+    const obj = { id, text, checked: false };
+    const newData = data ? [...data, obj] : [obj];
 
     const response = save(newData);
     setData(response);

@@ -29,15 +29,12 @@ export default ({ data, update, remove }) => {
 
   return (
     <List>
-      {todo && todo.map(({ id, title, checked }) => (
-        <Item 
-          key={id}
-          id={id}
-          checked={checked}
+      {todo && todo.map((props) => (
+        <Item
+          {...props}
+          key={props.id}
           remove={remove}
-          onClick={() => toggleCheck(id)}>
-          {title}
-        </Item>
+          onClick={() => toggleCheck(props.id)}/>
       ))}
     </List>
   )
