@@ -1,8 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import { FiTrash } from 'react-icons/fi';
 
-const Item = styled.li`
+export const Item = styled.li`
   position: relative;
   display: flex;
   align-items: center;
@@ -41,7 +39,7 @@ const Item = styled.li`
   }
 `;
 
-const Icon = styled.button`
+export const Icon = styled.button`
   position: absolute;
   width: 0;
   height: 100%;
@@ -56,21 +54,3 @@ const Icon = styled.button`
     cursor: pointer;
   }
 `;
-
-export default (props) => {
-  const remove = (e, id) => {
-    e.stopPropagation();
-    props.remove(id);
-  }
-
-  return (
-    <Item 
-      {...props} 
-      className={props.checked ? 'checked':''}>
-      {props.text}
-      <Icon onClick={(e) => remove(e, props.id)}>
-        <FiTrash color="#FFF" size={16} />
-      </Icon>
-    </Item>
-  )
-}

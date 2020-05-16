@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 
-import Item from './ListItem';
+import { List } from './styles';
 
-const List = styled.ul`
-  display: block;
-  width: 100%;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`;
+import Item from './../ListItem';
 
 export default ({ data, update, remove }) => {
   const [todo, setTodo] = useState([]);

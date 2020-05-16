@@ -1,28 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { get, save } from './localstorage';
+
+import { App, Title } from './styles';
 
 import ProgressBar from './components/ProgressBar';
 import List from './components/List';
 import Form from './components/Form';
-
-const App = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px;
-  height: 100%;
-  margin: 0 auto;
-`;
-
-const Title = styled.h1`
-  font-size: 60px;
-  font-weight: 100;
-  color: rgba(0, 0, 0, .2);
-  margin-bottom: 32px;
-`;
 
 export default () => {
   const [data, setData] = useState(false);
