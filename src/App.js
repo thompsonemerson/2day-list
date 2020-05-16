@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
 import { get, save } from './localstorage';
+
+import ProgressBar from './components/ProgressBar';
 import List from './components/List';
 import Form from './components/Form';
 
@@ -25,11 +26,19 @@ const Title = styled.h1`
 
 export default () => {
   const [data, setData] = useState(false);
+  const [percentage, setPercentage] = useState(0);
 
   useEffect(() => {
     const response = get();
     setData(response);
   }, []);
+
+  useEffect(() => {
+    const total = data ? data.length : 0;
+    const completed = data ? data.filter((item) => item.checked).length : 0;
+
+    setPercentage(completed / total * 100);
+  }, [data])
 
   const update = (newData) => {
     const response = save(newData);
@@ -54,13 +63,12 @@ export default () => {
 
   return (
     <App>
+      <ProgressBar percentage={percentage} />
       <Title>2Day List</Title>
-
       <List 
         data={data} 
         update={update}
         remove={remove}/>
-
       <Form add={add} />
     </App>
   );
