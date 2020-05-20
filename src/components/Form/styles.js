@@ -1,43 +1,55 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  position: relative;
-  display: flex;
-  width: 100%;
-  margin-top: 32px;
+  position: fixed;
+  right: ${(props) => props.opened ? 30 : 50}px;
+  bottom: ${(props) => props.opened ? 30 : 50}px;
+  display: block;
+  width: ${(props) => props.opened ? 600 : 40}px;
+  height: ${(props) => props.opened ? 80 : 40}px;
+  border-radius: 80px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+  background: #FFF;
+  opacity: ${(props) => props.opened ? 1 : 0};
+  transition: all 250ms linear;
 `;
 
 export const Input = styled.input`
-  width: 100%;
-  height: 60px;
-  padding: 0 80px 0 24px;
-  font-size: 18px;
-  color: #FFF;
+  width: calc(100% - 80px);
+  height: 62px;
+  padding: 8px 0;
+  margin: 8px;
+  font-size: 20px;
+  text-align: center;
+  color: rgba(0, 0, 0, .5);
+  border: none;
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, .2);
 `;
 
 export const Button = styled.button`
-  position: absolute;
-  top: calc(50% - 25px);
-  right: 16px;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(0, 0, 0, 0);
+  width: 60px;
+  height: 60px;
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+  transform: scale(.9) ${(props) => props.opened ? 'rotate(0)' : 'rotate(180deg)'};
   transition: all 250ms linear;
-  transform: scale(0);
+  background-color: ${(props) => props.opened ? '#2ECC71' : '#FFF'};
 
-  &:hover {
-    background: rgba(0, 0, 0, .2);
-    cursor: pointer;
+  &:disabled {
+    background: rgba(0, 0, 0, .4);
+    opacity: .5;
+    pointer-events: none;
   }
 
-  &.show {
-    transform: scale(1) rotate(180deg);
+  &:hover {
+    transform: scale(1) ${(props) => props.opened ? 'rotate(0)' : 'rotate(180deg)'};
+    cursor: pointer;
   }
 `;

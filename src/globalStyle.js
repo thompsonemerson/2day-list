@@ -6,6 +6,7 @@ export default createGlobalStyle`
     padding: 0;
     text-decoration: none;
     outline: none;
+    box-sizing: border-box;
   }
 
   html, body, #root {
