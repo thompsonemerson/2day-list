@@ -1,6 +1,8 @@
 # 2Day List
 > A simple daily todo list
 
-![demo image](http://upload-gifs.s3-sa-east-1.amazonaws.com/b634ca9a-fc93-4bb6-ac5e-f851def427e1_Kapture_2daylist.gif)
+<p align="center">
+  <img src="http://upload-gifs.s3-sa-east-1.amazonaws.com/277db562-d405-4c1f-8bb8-c8bd8eef69c9_screen-2day.gif" width="590" height="536" alt="2Day List" />
+</p>
 
 ...
