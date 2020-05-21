@@ -14,6 +14,21 @@ export const Form = styled.form`
   transition: all 250ms linear;
 `;
 
+export const LabelFixed = styled.label`
+  position: absolute;
+  top: -26px;
+  left: 32px;
+  display: flex;
+  align-items: center;
+  color: #FFF; 
+  font-size: 14px;
+  cursor: pointer;
+
+  svg {
+    margin-right: 6px;
+  }
+`;
+
 export const Input = styled.input`
   width: calc(100% - 80px);
   height: 62px;

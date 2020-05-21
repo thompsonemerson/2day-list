@@ -13,7 +13,9 @@ export default () => {
 
   useEffect(() => {
     const response = get();
-    setData(response);
+    const removeExpired = response.filter((item) => item.fixed || item.expires >= new Date().getTime());
+
+    setData(removeExpired);
   }, []);
 
   useEffect(() => {
@@ -28,11 +30,16 @@ export default () => {
     setData(response);
   };
 
-  const add = (text) => {
-    const id = '_' + Math.random().toString(36).substr(2, 9);
-    const obj = { id, text, checked: false };
-    const newData = data ? [...data, obj] : [obj];
+  const add = (text, fixed) => {
+    const obj = { 
+      id: '_' + Math.random().toString(36).substr(2, 9),
+      text,
+      fixed,
+      checked: false,
+      expires: new Date().setHours(23, 15, 59)
+    };
 
+    const newData = data ? [...data, obj] : [obj];
     const response = save(newData);
     setData(response);
   }

@@ -10,6 +10,11 @@ export const Item = styled.li`
   padding: 0 24px;
   transition: all 250ms linear;
 
+  & > svg {
+    margin-right: 8px;
+    fill: rgba(255, 255, 255, .2);
+  }
+
   & + li {
     border-top: 1px solid rgba(0, 0, 0, .2);
   }

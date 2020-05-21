@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { MdAdd, MdCheck } from 'react-icons/md';
+import { MdAdd, MdCheck, MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 
-import { Form, Input, Button } from './styles';
+import { Form, LabelFixed, Input, Button } from './styles';
 
 export default ({ add }) => {
   const [opened, setOpened] = useState(false);
   const [text, setText] = useState('');
+  const [fixed, setFixed] = useState(false);
 
   const isValid = text.replace(/\s/g,'').length > 3;
 
@@ -13,8 +14,9 @@ export default ({ add }) => {
     if (e) e.preventDefault();
 
     if (isValid) {
-      add(text);
+      add(text, fixed);
       setText('');
+      setFixed(false);
       setOpened(false);
     }
   }
@@ -37,6 +39,11 @@ export default ({ add }) => {
   return (
     <>
       <Form opened={opened} onSubmit={handleSubmit}>
+        <LabelFixed onClick={() => setFixed(!fixed)}>
+          {fixed ? <MdCheckBox color="#FFF" size={18} /> : <MdCheckBoxOutlineBlank color="#FFF" size={18} />}
+          Fixed task?
+        </LabelFixed>
+
         <Input 
           type="text" 
           placeholder="Add task"
@@ -48,11 +55,7 @@ export default ({ add }) => {
         opened={opened} 
         onClick={handleClick}
         disabled={opened && !isValid}>
-        {opened ? (
-          <>
-            <MdCheck color="#FFF" size={32} />
-          </>
-        ) : <MdAdd color="#000" size={32} />}
+        {opened ? <MdCheck color="#FFF" size={32} /> : <MdAdd color="#000" size={32} />}
       </Button>
     </>
   )
