@@ -12,7 +12,7 @@ export default () => {
   const [percentage, setPercentage] = useState(0);
 
   useEffect(() => {
-    const response = get();
+    const response = get() || [];
     const removeExpired = response.filter((item) => item.fixed || item.expires >= new Date().getTime());
 
     setData(removeExpired);
